@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGaleriesTable extends Migration
+class CreatePrestasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateGaleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('galeries', function (Blueprint $table) {
+        Schema::create('prestasis', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama');
+            $table->date('tanggal_peroleh');
+            $table->string('deskripsi');
+              $table->unsignedInteger('eskul_id');
+            $table->foreign('eskul_id')->references('id')->on('eskuls')->ondelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateGaleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeries');
+        Schema::dropIfExists('prestasis');
     }
 }

@@ -15,6 +15,9 @@ class CreateEskulsTable extends Migration
     {
         Schema::create('eskuls', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama');
+            $table->string('poto');
+            $table->string('content');
             $table->timestamps();
         });
     }

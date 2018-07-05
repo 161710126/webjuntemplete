@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArtikelsTable extends Migration
+class CreateFasilitasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateArtikelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('artikels', function (Blueprint $table) {
+        Schema::create('fasilitas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama');
+            $table->string('poto');
+             $table->unsignedInteger('kategorifasilitas_id');
+            $table->foreign('kategorifasilitas_id')->references('id')->on('kategori_fasilitas')->ondelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateArtikelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artikels');
+        Schema::dropIfExists('fasilitas');
     }
 }

@@ -55,11 +55,11 @@
               <img src="{{asset('assets/dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  John Pierce
+                  M Junika Berli
                   <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
                 </h3>
                 <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 30 menit yang lalu</p>
               </div>
             </div>
             <!-- Message End -->
@@ -71,11 +71,11 @@
               <img src="{{asset('assets/dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Nora Silvester
+                  Rima Dona
                   <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
                 </h3>
                 <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 1 jam yang lalu</p>
               </div>
             </div>
             <!-- Message End -->
