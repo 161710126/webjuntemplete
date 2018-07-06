@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class galeri extends Model
-{
+
    {
       protected $table = 'galeris';
      protected $fillable = ['poto','kategorigaleri_id'];
@@ -15,5 +15,5 @@ class galeri extends Model
 	{
 		return $this->belongsTo('App\kategori_galeri','kategorigaleri_id');
 	}
-}
+
 }

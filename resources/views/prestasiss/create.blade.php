@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<form action="{{ route('gurus.store') }}" method="post" enctype="multipart/form-data">
+		<form action="{{ route('fasilitas.store') }}" method="post">
 			{{ csrf_field() }}
 			<div class="form-group {{$errors->has('nama') ? 'has-error' : '' }}">
 				<label class="control-label">Nama</label>
@@ -19,20 +19,21 @@
 				<span class="help-block"><strong>{{ $errors->first('nama') }}</strong></span>
 				@endif
 			</div>
-
-	<div class="form-group {{$errors->has('jabatan') ? 'has-error' : '' }}">
-				<label class="control-label">Jabatan</label>
-				<input type="text"  name="jabatan" class="form-control" required>
-				@if ($errors->has('jabatan'))
-				<span class="help-block"><strong>{{ $errors->first('jabatan') }}</strong></span>
+			<div class="form-group {{$errors->has('poto') ? 'has-error' : '' }}">
+				<label class="control-label">poto</label>
+				<input type="file" id="poto" name="poto" class="validate" accept="image/*" required>
+				@if ($errors->has('poto'))
+				<span class="help-block"><strong>{{ $errors->first('poto') }}</strong></span>
 				@endif
 			</div>
-			<div class="form-group">
-                                <label for="cc-payment" class="control-label mb-1">Foto</label>
-                                <input name="poto" type="file" required>
-                            </div>
 
-
+	<div class="form-group {{$errors->has('kategorifasilitas_id') ? 'has-error' : '' }}">
+				<label class="control-label">kategorifasilitas_id</label>
+				<input type="text"  name="kategorifasilitas_id" class="form-control" required>
+				@if ($errors->has('kategorifasilitas_id'))
+				<span class="help-block"><strong>{{ $errors->first('kategorifasilitas_id') }}</strong></span>
+				@endif
+			</div>
 			<div class="from-group">
 				<button type="submit" class="btn btn-primary">Tambah</button>
 			</div>

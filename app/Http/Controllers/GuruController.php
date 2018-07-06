@@ -40,7 +40,14 @@ class GuruController extends Controller
         $gurus = new guru;
         $gurus->nama = $request->nama;
         $gurus->jabatan = $request->jabatan;
-        $gurus->poto = $request->poto;
+                if ($request->hasFile('poto')){
+            $file=$request->file('poto');
+            $destinationPath=public_path().'assets/img/imagess/';
+            $filename=str_random(6).'_'.$file->getClientOriginalName();
+            $uploadSuccess= $file->move($destinationPath,$filename);
+            $gurus->poto= $filename;
+        }
+
         $gurus->save();
         return redirect()->route('gurus.index');     }
 
@@ -85,7 +92,26 @@ class GuruController extends Controller
         $gurus = guru::findOrFail($id);
         $gurus->nama = $request->nama;
         $gurus->jabatan = $request->jabatan;
-        $gurus->poto = $request->poto;
+          // edit upload poto
+        if ($request->hasFile('poto')) {
+            $file = $request->file('poto');
+            $destinationPath = public_path().'/assets/img/imagess/';
+            $filename = str_random(6).'_'.$file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+    
+        // hapus poto lama, jika ada
+        if ($gurus->poto) {
+        $old_poto = $gurus->poto;
+        $filepath = public_path() . DIRECTORY_SEPARATOR . '/assets/img/imagess'
+        . DIRECTORY_SEPARATOR . $gurus->poto;
+            try {
+            File::delete($filepath);
+            } catch (FileNotFoundException $e) {
+        // File sudah dihapus/tidak ada
+            }
+        }
+        $gurus->poto = $filename;
+}
         $gurus->save();
         return redirect()->route('gurus.index');       }
 
@@ -98,6 +124,16 @@ class GuruController extends Controller
     public function destroy($id)
     {
          $gurus = guru::findOrFail($id);
+          if ($gurus->foto) {
+            $old_foto = $gurus->foto;
+            $filepath = public_path() . DIRECTORY_SEPARATOR . 'assets/img/imagess/'
+            . DIRECTORY_SEPARATOR . $gurus->foto;
+            try {
+            File::delete($filepath);
+            } catch (FileNotFoundException $e) {
+            // File sudah dihapus/tidak ada
+            }
+            }
         $gurus->delete();
         return redirect()->route('gurus.index');    }
 }

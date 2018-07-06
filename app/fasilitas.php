@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class fasilitas extends Model
-{
-    {
+
+  {
       protected $table = 'fasilitas';
      protected $fillable = ['nama','poto','kategorifasilitas_id'];
      public $timestamps = true;
@@ -15,5 +15,4 @@ class fasilitas extends Model
 	{
 		return $this->belongsTo('App\kategori_fasilitas','kategorifasilitas_id');
 	}
-}
 }

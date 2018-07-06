@@ -27,3 +27,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('gurus', 'GuruController');
+Route::resource('eskuls', 'EskulController');
+Route::resource('fasilitas','FasilitasController');
+Route::resource('prestasis','PrestasiController');
+Route::resource('kategorisartikel','KategoriArtikelController');

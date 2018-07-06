@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class kategori_fasilitas extends Model
-{
+
      {
    protected $table = 'kategori_fasilitas'; 
     protected $fillable = ['nama_fasilitas']; 
@@ -16,4 +16,4 @@ class kategori_fasilitas extends Model
     	return $this->hasMany('App\fasilitas','kategorifasilitas_id');
     }
 }
-}
+
